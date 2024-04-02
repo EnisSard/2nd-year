@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int pivotInteger(int n) {
+    printf("Enter your number: ");
+    int i, k = 0;
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        k = k + i;
+    }
+    printf("Enter your pivot integer: ");
+    int p;
+    scanf("%d", &p);
+    int sum_left = 0;
+    for (i = 1; i <= p; i++) {
+        sum_left = sum_left + i;
+        if (sum_left == k - sum_left) {
+            return i;
+        }
+    }
+    return -1;
+}
+int main() {
+    int num = 0;
+    int pivot = pivotInteger(num);
+    if (pivot == -1) {
+        printf("No pivot integer found.\n");
+    } else {
+        printf("Pivot integer found: %d\n", pivot);
+    }
+    return 0;
+}
