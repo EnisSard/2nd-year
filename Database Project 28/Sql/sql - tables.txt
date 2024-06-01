@@ -1,0 +1,72 @@
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    max_books INT,
+    max_duration INT,
+    CHECK (max_books > 0),
+    CHECK (max_duration > 0)
+);
+
+CREATE TABLE Faculty (
+    faculty_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    max_books INT,
+    max_duration INT,
+    CHECK (max_books > 0),
+    CHECK (max_duration > 0)
+);
+
+CREATE TABLE Books (
+    book_id INT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author_id INT,
+    publisher_id INT,
+    publication_year INT,
+    copies INT,
+    CHECK (copies >= 0)
+);
+
+CREATE TABLE Authors (
+    author_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Publishers (
+    publisher_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE BookIssues (
+    issue_id INT PRIMARY KEY,
+    book_id INT,
+    student_id INT,
+    issue_date DATE,
+    due_date DATE,
+    return_date DATE,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    CHECK (return_date >= issue_date)
+);
+
+CREATE TABLE Fines (
+    fine_id INT PRIMARY KEY,
+    issue_id INT,
+    amount DECIMAL(10, 2) NOT NULL,
+    paid BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (issue_id) REFERENCES BookIssues(issue_id),
+    CHECK (amount >= 0)
+);
+
+CREATE TABLE Staff (
+    staff_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    role VARCHAR(100) NOT NULL
+);

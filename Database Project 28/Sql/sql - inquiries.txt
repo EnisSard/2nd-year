@@ -1,0 +1,67 @@
+--Select
+
+SELECT s.name,
+       (SELECT COUNT(*)
+        FROM BookIssues bi
+        WHERE bi.student_id = s.student_id) AS total_books_issued
+FROM Students s;
+
+
+
+--Subquery
+
+SELECT name
+FROM Students
+WHERE student_id IN (
+    SELECT DISTINCT student_id
+    FROM BookIssues
+);
+
+
+
+
+--Join (no duplicates)
+
+SELECT DISTINCT Students.name
+FROM Students
+JOIN BookIssues ON Students.student_id = BookIssues.student_id;
+
+
+
+
+--Characher Function
+
+SELECT UPPER(name) AS upper_case_name
+FROM Students;
+
+
+
+--Date Function
+
+SELECT issue_id, book_id, student_id, faculty_id, issue_date, due_date, return_date
+FROM BookIssues
+WHERE due_date BETWEEN SYSDATE AND SYSDATE + 7;
+
+
+--Updates
+
+UPDATE Fines
+SET paid = 1
+WHERE fine_id = 2;
+
+--Group By
+
+SELECT s.name,
+       COUNT(bi.issue_id) AS total_books_issued
+FROM Students s
+LEFT JOIN BookIssues bi ON s.student_id = bi.student_id
+GROUP BY s.student_id, s.name;
+
+
+
+
+--Alter Table
+
+ALTER TABLE Faculty
+DROP COLUMN phone;
+

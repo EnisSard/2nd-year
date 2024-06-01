@@ -1,0 +1,146 @@
+INSERT INTO Students (student_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(1, 'Enishan Sardoğan', 'enis123@outlook.com', '0532897521', 'Karabük Safranbolu', 5, 30);
+
+INSERT INTO Students (student_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(2, 'Alparslan Aktaş', 'alp1515@gmail.com', '0555853873', 'İstanbul Kartal', 5, 30);
+
+INSERT INTO Students (student_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(3, 'İbrahim Görkem Siper', 'gorkem8539@outlook.com', '05783495817', 'Ankara Sincan', 5, 30);
+
+INSERT INTO Students (student_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(4, 'Necmettin Gazel', 'necm7878@gmail.com', '05874387551', 'Karabük Safranbolu', 5, 30),
+
+
+
+INSERT INTO Faculty (faculty_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(1, 'Professor Alp', 'alp@outlook.com', '057357835', 'Karabük Üniversitesi Mühendislik Fakültesi', 10, 60);
+
+INSERT INTO Faculty (faculty_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(2, 'Professor Yavuz', 'yavuz@outlook.com', '0578326512', 'Karabük Üniversitesi Mühendislik Fakültesi', 10, 60);
+
+INSERT INTO Faculty (faculty_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(3, 'Professor Ömer', 'omer@outlook.com', '05657832876', 'Karabük Üniversitesi Mühendislik Fakültesi', 10, 60);
+
+INSERT INTO Faculty (faculty_id, name, email, phone, address, max_books, max_duration)
+VALUES
+(4, 'Professor Başak', 'basak@outlook.com', '0576896598', 'Karabük Üniversitesi Mühendislik Fakültesi', 10, 60);
+
+
+
+
+
+INSERT INTO Authors (author_id, name)
+VALUES
+(1, 'Murat Tezcan');
+
+INSERT INTO Authors (author_id, name)
+VALUES
+(2, 'İbrahim Sertdemir');
+
+INSERT INTO Authors (author_id, name)
+VALUES
+(3, 'Yusuf Yıldırım');
+
+INSERT INTO Authors (author_id, name)
+VALUES
+(4, 'Ömer Marangoz');
+
+
+
+INSERT INTO Publishers (publisher_id, name)
+VALUES
+(1, 'Üçgen Yayınları');
+
+INSERT INTO Publishers (publisher_id, name)
+VALUES
+(2, 'Dergi Baskıevi');
+
+INSERT INTO Publishers (publisher_id, name)
+VALUES
+(3, 'Hızlı Yayınevi');
+
+INSERT INTO Publishers (publisher_id, name)
+VALUES
+(4, 'Jet Basımları');
+
+
+
+INSERT INTO Books (book_id, title, author_id, publisher_id, publication_year, copies)
+VALUES
+(1, 'SQL Fundamentals', 1, 1, 2020, 10);
+
+INSERT INTO Books (book_id, title, author_id, publisher_id, publication_year, copies)
+VALUES
+(2, 'Database Design', 2, 2, 2019, 8);
+
+INSERT INTO Books (book_id, title, author_id, publisher_id, publication_year, copies)
+VALUES
+(3, 'Data Science Handbook', 3, 3, 2021, 5);
+
+INSERT INTO Books (book_id, title, author_id, publisher_id, publication_year, copies)
+VALUES
+(4, 'Programming in Python', 4, 4, 2022, 12);
+
+
+
+INSERT INTO BookIssues (issue_id, book_id, student_id, issue_date, due_date, return_date)
+VALUES
+(1, 1, 1, TO_DATE('2024-05-01', 'YYYY-MM-DD'), TO_DATE('2024-05-31', 'YYYY-MM-DD'), TO_DATE('2024-05-29', 'YYYY-MM-DD'));
+
+INSERT INTO BookIssues (issue_id, book_id, student_id, issue_date, due_date, return_date)
+VALUES
+(2, 2, 2, TO_DATE('2024-05-05', 'YYYY-MM-DD'), TO_DATE('2024-06-04', 'YYYY-MM-DD'), TO_DATE('2024-06-04', 'YYYY-MM-DD'));
+
+INSERT INTO BookIssues (issue_id, book_id, student_id, issue_date, due_date, return_date)
+VALUES
+(3, 3, 3, TO_DATE('2024-05-10', 'YYYY-MM-DD'), TO_DATE('2024-05-30', 'YYYY-MM-DD'), TO_DATE('2024-06-04', 'YYYY-MM-DD'));
+
+INSERT INTO BookIssues (issue_id, book_id, student_id, issue_date, due_date, return_date)
+VALUES
+(4, 4, 4, TO_DATE('2024-05-15', 'YYYY-MM-DD'), TO_DATE('2024-06-14', 'YYYY-MM-DD'), TO_DATE('2024-06-04', 'YYYY-MM-DD'));
+
+
+
+INSERT INTO Fines (fine_id, issue_id, amount, paid)
+VALUES
+(1, 1, 10.50, 1);
+
+INSERT INTO Fines (fine_id, issue_id, amount, paid)
+VALUES
+(2, 2, 8.75, 0);
+
+INSERT INTO Fines (fine_id, issue_id, amount, paid)
+VALUES
+(3, 3, 15.20, 0);
+
+INSERT INTO Fines (fine_id, issue_id, amount, paid)
+VALUES
+(4, 4, 12.00, 0);
+
+
+
+INSERT INTO Staff (staff_id, name, email, phone, role)
+VALUES
+(1, 'Mert Tel', 'mert@outlook.com', '0555873256', 'Librarian');
+
+INSERT INTO Staff (staff_id, name, email, phone, role)
+VALUES
+(2, 'Murat Kel', 'murat@outlook.com', '05553615672', 'Administrator');
+
+INSERT INTO Staff (staff_id, name, email, phone, role)
+VALUES
+(3, 'Davut Bez', 'davut@outlook.com', '05537621672', 'Assistant Librarian');
+
+INSERT INTO Staff (staff_id, name, email, phone, role)
+VALUES
+(4, 'Katip Kez', 'katip@outlook.com', '05055172875', 'Clerk');
+
+
+
